@@ -1,8 +1,31 @@
 body {
-  background-color: #777777;
   color: #91d9e3;
+  background: -webkit-linear-gradient(green, #c4153e);
+  background: linear-gradient(green, #c4153e);
 }
 
 h1 {
-  color: #ccc;
+  color: #91d9e3;
+  border-radius: 10px 5px;
+}
+
+h1:hover {
+  -webkit-transition: color 2s ease;
+  transition: color 2s ease;
+}
+
+h2 {
+  border-radius: 10px 5px;
+}
+
+a {
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+}
+
+.smokey {
+  -o-border-image: url(img.png) 10px/20px round;
+     border-image: url(img.png) 10px/20px round;
 }

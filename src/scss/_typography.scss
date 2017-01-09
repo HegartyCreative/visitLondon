@@ -1,8 +1,29 @@
-body{
-    background-color: $background;
-    color: $light-blue;
+
+body {
+  color: #91d9e3;
+  background: linear-gradient(
+    $background, $primaryColour);
 }
 
+
+
 h1{
-    color: $secondaryColour;
+    color: $light-blue;
+    border-radius: 10px 5px;
+}
+
+h1:hover{
+    transition: color 2s ease;
+}
+
+h2{
+    border-radius: 10px 5px;
+}
+
+a {
+  transition: transform 1s
+}
+
+.smokey {
+    border-image: url(img.png) 10px / 20px round;
 }
