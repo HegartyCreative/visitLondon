@@ -1,0 +1,24 @@
+{
+  "name": "gulp_workflow",
+  "version": "1.0.0",
+  "description": "Gulp workflow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HegartyCreative/gulpWorkflow.git"
+  },
+  "keywords": [
+    "Gulp",
+    "SASS",
+    "NPM"
+  ],
+  "author": "Sean Hegarty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HegartyCreative/gulpWorkflow/issues"
+  },
+  "homepage": "https://github.com/HegartyCreative/gulpWorkflow#readme"
+}
