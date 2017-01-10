@@ -1,10 +1,12 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var browserSync = require('browser-sync');
+var gulp = require ('gulp');
+var sass = require ('gulp-sass');
+var browserSync = require ('browser-sync');
 var reload = browserSync.reload;
-var autoprefixer = require('gulp-autoprefixer');
-var clean = require('gulp-clean');
-var concat = require('gulp-concat');
+var autoprefixer = require ('gulp-autoprefixer');
+var clean = require ('gulp-clean');
+var concat = require ('gulp-concat');
+var browserify = require ('gulp-browserify');
+var merge = require ('merge-stream');
 
 var sourcePaths = {
     sassSource: 'src/scss/*.scss',
@@ -29,15 +31,20 @@ gulp.task('clean-scripts', function(){
 });
 
 gulp.task('sass', function(){
-    return gulp.src(sourcePaths.sassSource)
+    var bootstrapCSS = gulp.src('./node_modules/bootstrap/dist/css/bootstrap.css');
+    var sassFiles;
+    sassFiles = gulp.src(sourcePaths.sassSource)
     .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(autoprefixer())
+    return merge( bootstrapCSS, sassFiles)
+    .pipe(concat('app.css'))
     .pipe(gulp.dest(appPaths.css));
 });
 
 gulp.task('scripts', ['clean-scripts'], function(){
     gulp.src(sourcePaths.jsSource)
     .pipe(concat('main.js'))
+    .pipe(browserify())
     .pipe(gulp.dest(appPaths.js))
 });
 
