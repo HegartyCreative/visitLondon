@@ -13,6 +13,7 @@ var injectPartials = require ('gulp-inject-partials');
 var minify = require ('gulp-minify');
 var rename = require ('gulp-rename');
 var cssmin = require ('gulp-cssmin');
+var htmlmin = require ('gulp-htmlmin');
 
 var sourcePaths = {
     sassSource: 'src/scss/*.scss',
@@ -94,6 +95,13 @@ gulp.task('compresscss', function(){
     .pipe(gulp.dest(appPaths.css));
 });
 
+gulp.task('minifyhtml', function(){
+    return gulp.src(sourcePaths.htmlSource)
+    .pipe(injectPartials())
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest(appPaths.root))
+});
+
 /** End of Production Tasks **/
 
 gulp.task('html', function(){
@@ -127,3 +135,4 @@ gulp.task('watch', ['serve', 'sass', 'clean-html', 'clean-scripts', 'scripts', '
 });
 
 gulp.task('default', ['watch']);
+gulp.task('production', ['compress', 'compresscss', 'minifyhtml']);

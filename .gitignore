@@ -10,6 +10,8 @@
 *~
 *.sass-cache
 node_modules/
+app/
+.gitignore
 .tmp/
 
 # OS or Editor folders
