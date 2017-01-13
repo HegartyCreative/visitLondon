@@ -110,14 +110,6 @@ gulp.task('html', function(){
     .pipe(gulp.dest(appPaths.root))
 });
 
-
-/*
-gulp.task('copy', ['clean-html'], function(){
-    gulp.src(sourcePaths.htmlSource)
-    .pipe(gulp.dest(appPaths.root))
-});
-*/
-
 gulp.task('serve', ['sass'], function(){
     browserSync.init([appPaths.css + '/*.css', appPaths.root + '/*.html', appPaths.js + '/*.js'],{
         server: {
@@ -128,11 +120,10 @@ gulp.task('serve', ['sass'], function(){
 
 gulp.task('watch', ['serve', 'sass', 'clean-html', 'clean-scripts', 'scripts', 'moveFonts', 'html', 'images'], function(){
     gulp.watch([sourcePaths.sassSource], ['sass']);
-    //gulp.watch([sourcePaths.htmlSource], ['copy']);
     gulp.watch([sourcePaths.jsSource], ['scripts']);
     gulp.watch([sourcePaths.imgSource], ['images']);
     gulp.watch([sourcePaths.htmlSource, sourcePaths.htmlPartial], ['html']);
 });
 
 gulp.task('default', ['watch']);
-gulp.task('production', ['minifyhtml', 'compresscss', 'compress']);
+gulp.task('production', ['minifyhtml', 'compresscss', 'compress', 'serve']);
