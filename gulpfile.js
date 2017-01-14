@@ -17,6 +17,7 @@ var htmlmin = require ('gulp-htmlmin');
 
 var sourcePaths = {
     sassSource: 'src/scss/*.scss',
+    sassApp: 'src/scss/app.scss',
     htmlSource: 'src/*.html',
     htmlPartial: 'src/partial/*.html',
     jsSource: 'src/js/**',
@@ -50,19 +51,11 @@ gulp.task('images', function(){
 });
 
 gulp.task('sass', function(){
-    var bootstrapCSS = gulp.src('./node_modules/bootstrap/dist/css/bootstrap.css');
-    var sassFiles;
-    sassFiles = gulp.src(sourcePaths.sassSource)
+    sassFiles = gulp.src(sourcePaths.sassApp)
     .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(autoprefixer())
-    return merge( bootstrapCSS, sassFiles)
     .pipe(concat('app.css'))
     .pipe(gulp.dest(appPaths.css));
-});
-
-gulp.task('moveFonts', function(){
-    gulp.src('./node_modules/bootstrap/dist/fonts/*.{eot,svg,ttf,woff,woff2}')
-    .pipe(gulp.dest(appPaths.fonts))
 });
 
 gulp.task('scripts', ['clean-scripts'], function(){
@@ -83,12 +76,9 @@ gulp.task('compress', function(){
 });
 
 gulp.task('compresscss', function(){
-    var bootstrapCSS = gulp.src('./node_modules/bootstrap/dist/css/bootstrap.css');
-    var sassFiles;
     sassFiles = gulp.src(sourcePaths.sassSource)
     .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(autoprefixer())
-    return merge( bootstrapCSS, sassFiles)
     .pipe(concat('app.css'))
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
@@ -118,7 +108,7 @@ gulp.task('serve', ['sass'], function(){
     })
 });
 
-gulp.task('watch', ['serve', 'sass', 'clean-html', 'clean-scripts', 'scripts', 'moveFonts', 'html', 'images'], function(){
+gulp.task('watch', ['serve', 'sass', 'clean-html', 'clean-scripts', 'scripts', 'html', 'images'], function(){
     gulp.watch([sourcePaths.sassSource], ['sass']);
     gulp.watch([sourcePaths.jsSource], ['scripts']);
     gulp.watch([sourcePaths.imgSource], ['images']);

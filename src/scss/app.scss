@@ -1,2 +1,14 @@
-@import '_variables.scss';
-@import '_typography.scss';
+@import url('https://fonts.googleapis.com/css?family=Bitter:400,700|Open+Sans:400,700');
+@import 'variables';
+@import 'mixins';
+@import 'typography';
+@import 'layout';
+@import 'grid';
+@import 'header';
+@import 'backgrounds';
+@import 'card';
+@import 'button';
+@import 'gallery';
+@import 'table';
+@import 'services';
+@import 'footer';

@@ -1,3 +1,71 @@
-$light-blue: #91d9e3;
-$secondaryColour: #ccc;
-$primaryColour: #c4153e;
+$white: #ffffff;
+$blue: #0076A3;
+$blue-dark: darken($blue, 10);
+$yellow: #FFBA00;
+$green: #548c27;
+$red: #fe2d28;
+$black: #000000;
+$bg-color: $blue;
+$text-colour: $black;
+
+// menu
+$menu-anchor-font-size: 1.4rem;
+$menu-font-family: 'Open Sans', serif;
+$menu-anchor-colour: $white;
+$menu-anchor-hover-colour: $yellow;
+
+// Nav
+$nav-bg-colour: $blue-dark;
+
+// Paragraphs
+$paragraph-font-size: 1.8rem;
+$paragraph-font-family: 'Bitter', sans-serif;
+
+// Headings
+$heading-font-family: 'Open Sans', serif;
+$heading-colour: $yellow;
+$heading-font-weight: 700;
+$heading-font-size: (
+    h1: 40px,
+    h2: 36px,
+    h3: 32px,
+    h4: 28px,
+    h5: 24px,
+    h6: 26px
+);
+
+// Visit
+$visit-border-colour: $white;
+$visit-heading-colour: lighten($yellow, 10);
+$visit-text-colour: $white;
+
+// card
+$card-bg-colour: $white;
+$card-body-font-size: 1.1rem;
+$card-body-line-height: 1.5rem;
+
+// table
+$table-body-font-size: 1.3rem;
+$table-caption-font: 'Bitter', sans-serif;
+$table-caption-font-colour: $yellow;
+$table-color: $white;
+$table-bg-hover-color: darken($yellow, 5);
+
+// Responsive and grid
+$columns: 12;
+$grid-max-width: 1200px;
+
+// buttons
+$btn-font-size: 16px;
+$btn-font-weight: bold;
+
+// footer
+$bg-footer: $blue-dark;
+$footer-color: $white;
+
+// mobile
+$breakpoints: (
+    phone: 480px,
+    tablet: 768px,
+    desktop: 1024px
+);

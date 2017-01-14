@@ -1,0 +1,21 @@
+footer.site-footer{
+    padding-top: 10px;
+    margin-top: 30px;
+    color: $footer-color;
+
+    h2{
+        margin: 0;
+    }
+
+    p.site-info{
+        text-align: center;
+        background-color: $yellow;
+        color: $blue-dark;
+        padding: 10px 0;
+        margin-top: 20px;
+        text-transform: uppercase;
+        text-weight: bold;
+        font-size: 1.3rem;
+    }
+
+}
